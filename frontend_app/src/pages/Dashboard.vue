@@ -1,12 +1,12 @@
 <template>
 <div>
   <div class="row">
-    <div class="col-lg-7">
+    <div class="col-7">
       <card :title="'Medications'">
         <med-table></med-table>
       </card>
     </div>
-    <div class="col-lg-5">
+    <div class="col-5">
       <card :title="'Allergies'">
         <allergies-table></allergies-table>
       </card>

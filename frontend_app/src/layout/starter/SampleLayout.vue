@@ -5,6 +5,8 @@
         <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')" icon="tim-icons icon-chart-pie-36"/>
         <sidebar-link to="/symptom-diary" :name="('Symptom Diary')" icon="tim-icons icon-notes"/>
         <sidebar-link to="/calendar" :name="('Calendar')" icon="tim-icons icon-calendar-60"/>
+        <sidebar-link to="/patient-preferences" :name="('Patient Preferences')" icon="tim-icons icon-single-02"/>
+        <sidebar-link to="/services-near-me" :name="('Services Near Me')" icon="tim-icons icon-square-pin"/>
       </template>
     </side-bar>
     <div class="main-panel">
