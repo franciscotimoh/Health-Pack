@@ -3,27 +3,29 @@
 # Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
 # stored credentials.
 
-def insert_event(service):
+def insert_event(service, title, start_time, end_time, recur, count = '0'):
 
     event = {
-    'summary': 'Google I/O 2015',
-    'location': '800 Howard St., San Francisco, CA 94103',
-    'description': 'A chance to hear more about Google\'s developer products.',
+    'summary': title,
+    'location': '',
+    'description': '',
+
     'start': {
-        'dateTime': '2024-01-28T09:00:00-07:00',
+        'dateTime': start_time, #'2024-01-28T09:00:00-07:00',
         'timeZone': 'America/Los_Angeles',
     },
+
     'end': {
-        'dateTime': '2024-01-28T17:00:00-07:00',
+        'dateTime': end_time, #'2024-01-28T17:00:00-07:00',
         'timeZone': 'America/Los_Angeles',
     },
+
     'recurrence': [
-        'RRULE:FREQ=DAILY;COUNT=2'
+        f"RRULE:FREQ={recur};COUNT={count}"
     ],
-    'attendees': [
-        {'email': 'lpage@example.com'},
-        {'email': 'sbrin@example.com'},
-    ],
+
+    'attendees': '',
+
     'reminders': {
         'useDefault': False,
         'overrides': [

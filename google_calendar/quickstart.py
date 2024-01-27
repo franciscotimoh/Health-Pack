@@ -77,4 +77,15 @@ def main():
 
 if __name__ == "__main__":
   a = main()
-  insert_event(a)
+  title = input()
+  
+  #start_date = input()
+  start_time = input()
+
+  #end_date = input()
+  end_time = input()
+
+  recurrence = input()
+  count = input()
+
+  insert_event(a, title, start_time, end_time, recurrence, count)
