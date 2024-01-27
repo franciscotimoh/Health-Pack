@@ -3,6 +3,8 @@
     <side-bar title="Health Pack">
       <template slot="links">
         <sidebar-link to="/dashboard" :name="$t('sidebar.dashboard')" icon="tim-icons icon-chart-pie-36"/>
+        <sidebar-link to="/symptom-diary" :name="('Symptom Diary')" icon="tim-icons icon-notes"/>
+        <sidebar-link to="/calendar" :name="('Calendar')" icon="tim-icons icon-calendar-60"/>
       </template>
     </side-bar>
     <div class="main-panel">
