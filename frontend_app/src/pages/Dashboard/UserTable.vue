@@ -7,6 +7,7 @@
 <script>
   import { BaseTable } from "@/components";
   export default {
+
     components: {
       BaseTable
     },
