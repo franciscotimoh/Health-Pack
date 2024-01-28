@@ -17,12 +17,12 @@
       return {
         columns: ["name", "dosage", "prescribed","expiration", "frequency", "side_effects"],
         tableData: [{
-          name: "Molly",
-          dosage: "Point",
+          name: "Accutane",
+          dosage: "10mg",
           prescribed: "2024-11-20",
-          expiration: "never",
+          expiration: "2024-11-21",
           frequency: "daily",
-          side_effects: "fetanyl poisoning"
+          side_effects: "f"
         }]
       }
     }

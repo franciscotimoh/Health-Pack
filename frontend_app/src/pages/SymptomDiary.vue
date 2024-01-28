@@ -2,14 +2,26 @@
 <div>
   <card :title="'How are you feeling today?'">
     <form @submit.prevent>
-      <base-input label="Date and Time"
+      <base-input label="Date and Time:"
                   type="datetime-local"
                   placeholder="Enter date and time"
                   v-model="currentDateTime">
       </base-input>
-      <discomfort-scale label="Level of Discomfort ( 1: Mild, 10: High )"></discomfort-scale>
+      <div class="Symptom Type">
+        <slot name="label">
+          <label class="control-label">
+            {{"Type:"}}
+          </label>
+        </slot>
+        <br>
+        <base-checkbox>Mental</base-checkbox>
+        <base-checkbox>Physical</base-checkbox>
+      </div>
       <br>
-      <base-input label="Symptoms"
+      <discomfort-scale label="Level of Discomfort ( 1: Mild, 10: High ):"></discomfort-scale>
+      <br>
+
+      <base-input label="Symptoms:"
                   type="text">
         <textarea class="form-control with-border" rows="3"
                   placeholder="Enter your symptoms and how it makes you feel here...">

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import DashboardLayout from '../layout/starter/SampleLayout.vue';
+import DashboardLayout from '../layout/starter/DashboardLayout.vue';
 import Starter from '../layout/starter/SamplePage.vue';
 import LineChart from '@/components/Charts/LineChart';
 
