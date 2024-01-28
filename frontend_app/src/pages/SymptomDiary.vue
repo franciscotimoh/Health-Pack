@@ -14,21 +14,23 @@
           </label>
         </slot>
         <br>
-        <base-checkbox>Mental</base-checkbox>
-        <base-checkbox>Physical</base-checkbox>
+        <select id="symptomType" v-model="userFormData.physical_or_mental">
+          <option value="Mental">Mental</option>
+          <option value="Physical">Physical</option>
+        </select>
       </div>
       <br>
-      <discomfort-scale label="Level of Discomfort ( 1: Mild, 10: High ):"></discomfort-scale>
+      <discomfort-scale label="Level of Discomfort ( 1: Mild, 10: High ):" @mood-selected="updateMood"></discomfort-scale>
       <br>
 
       <base-input label="Symptoms:"
                   type="text">
         <textarea class="form-control with-border" rows="3"
-                  placeholder="Enter your symptoms and how it makes you feel here...">
+                  placeholder="Enter your symptoms and how it makes you feel here..." v-model="description">
         </textarea>
       </base-input>
 
-      <base-button native-type="submit" type="primary">Submit</base-button>
+      <base-button native-type="submit" type="primary" @click="collectSymptomResponses">Submit</base-button>
     </form>
   </card>
 
@@ -37,26 +39,67 @@
 
 <script>
 import DiscomfortScale from "@/pages/SymptomDiary/DiscomfortScale.vue";
+import { writeUserData } from "@/firebase.js";
 
 export default {
   components: {DiscomfortScale},
     data() {
+      // const currentDateTime = this.getCurrentDateTime();
+      // return {
+      //   currentDateTime
+      // };
       const currentDateTime = this.getCurrentDateTime();
       return {
-        currentDateTime
+        currentDateTime,
+        userFormData: {
+          name: 'Steve', // Empty string
+          ID: 1000101,
+          date: currentDateTime,
+          mood: 5,
+          physical_or_mental: '',
+          description: ''
+        },
       };
+
     },
   methods: {
-      getCurrentDateTime(){
-        const now = new Date();
-        // Subtract 8 hours (8 * 60 * 60 * 1000 milliseconds) from the current date and time
-        const offsetDateTime = new Date(now.getTime() - 8 * 60 * 60 * 1000);
+    updateMood(selectedMood) {
+      this.userFormData.mood = selectedMood;
+      console.log(`Selected Mood in parent component: ${selectedMood}`);
+    },
+    
+    getCurrentDateTime() {
+      const now = new Date();
+      const offsetDateTime = new Date(now.getTime() - 8 * 60 * 60 * 1000);
+      return offsetDateTime.toISOString().slice(0, 16);
+    },
 
-        // Format the date and time in a way accepted by `datetime-local` input
-        return offsetDateTime.toISOString().slice(0, 16);
-      }
-  }
-}
+    collectSymptomResponses() {// Gather form data
+      const userID = 101011; 
+      const formData = {
+        name: this.userFormData.name,
+        ID: userID,
+        date: this.userFormData.date,
+        mood: this.userFormData.mood,
+        physical_or_mental: this.userFormData.physical_or_mental,
+        description: this.description
+      };
+
+      writeUserData(
+        formData.name,
+        formData.ID,
+        formData.date,
+        formData.mood,
+        formData.physical_or_mental,
+        formData.description
+      );
+
+      // Clear/refresh the form
+      this.currentDateTime = this.getCurrentDateTime();
+      // Clear other form fields as needed
+    },
+  },
+};
 </script>
 <style>
 

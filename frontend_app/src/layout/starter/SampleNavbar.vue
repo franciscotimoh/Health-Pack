@@ -64,7 +64,8 @@
               </li>
               <div class="dropdown-divider"></div>
               <li class="nav-link">
-                <a href="#" class="nav-item dropdown-item">Log out</a>
+                <router-link to="/welcome" class="nav-item dropdown-item">Log Out</router-link>
+<!--                <a href="/welcome" class="nav-item dropdown-item">Log out</a>-->
               </li>
             </base-dropdown>
           </ul>

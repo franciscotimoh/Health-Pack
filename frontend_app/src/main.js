@@ -33,8 +33,8 @@ Vue.use(RouterPrefetch);
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "rawr",
-  authDomain: "rawr",
+  apiKey: "",
+  authDomain:""
   // ... (other config properties)
 };
 

@@ -37,6 +37,18 @@ export default new Router({
           path: 'calendar',
           name: 'calendar',
           component: Calendar
+        },
+        {
+          path: 'my-health',
+          name: 'my health'
+        },
+        {
+          path: 'patient-preferences',
+          name: 'Patient Preferences'
+        },
+        {
+          path: 'services-near-me',
+          name: 'Services Near Me'
         }
       ]
     },

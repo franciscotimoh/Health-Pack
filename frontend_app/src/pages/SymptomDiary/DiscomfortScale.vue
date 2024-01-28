@@ -31,6 +31,7 @@ export default {
   data() {
     return {
       buttonTypes: Array(10).fill('default'), // Initialize an array for button types
+      selectedMood: null, 
     };
   },
   methods: {
@@ -40,7 +41,12 @@ export default {
 
       // Select the clicked button
       this.$set(this.buttonTypes, index, 'warning');
+
+      this.selectedMood = index + 1;
+
       console.log(`Button ${index + 1} clicked!`);
+
+      this.$emit('mood-selected', this.selectedMood);
     },
   },
 };
