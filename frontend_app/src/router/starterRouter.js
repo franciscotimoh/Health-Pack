@@ -8,6 +8,10 @@ import LineChart from '@/components/Charts/LineChart';
 const Dashboard = () => import(/* webpackChunkName: "dashboard" */"@/pages/Dashboard.vue");
 const SymptomDiary = () =>import(/* webpackChunkName: "dashboard" */"@/pages/SymptomDiary.vue");
 const Calendar = () =>import(/* webpackChunkName: "dashboard" */"@/pages/Calendar.vue");
+const Login = () =>import(/* webpackChunkName: "dashboard" */"@/pages/Login.vue");
+const Register = () =>import(/* webpackChunkName: "dashboard" */"@/pages/Register.vue");
+const Welcome = () =>import(/* webpackChunkName: "dashboard" */"@/pages/Welcome.vue");
+
 Vue.use(Router);
 
 export default new Router({
@@ -15,9 +19,10 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      redirect: '/dashboard',
+      redirect: "/welcome",
       component: DashboardLayout,
       children: [
+
         {
           path: 'dashboard',
           name: 'dashboard',
@@ -32,8 +37,35 @@ export default new Router({
           path: 'calendar',
           name: 'calendar',
           component: Calendar
+        },
+        {
+          path: 'my-health',
+          name: 'my health'
+        },
+        {
+          path: 'patient-preferences',
+          name: 'Patient Preferences'
+        },
+        {
+          path: 'services-near-me',
+          name: 'Services Near Me'
         }
       ]
+    },
+    {
+      path: "/login",
+      name: "Auth Page",
+      component: Login
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: Register
+    },
+    {
+      path: "/welcome",
+      name: "welcome",
+      component: Welcome
     }
   ]
 });

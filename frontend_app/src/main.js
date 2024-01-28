@@ -19,12 +19,28 @@ import App from "./App";
 // PRECV: ./router/index
 import router from "./router/starterRouter";
 
+//firebase imports
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
 import BlackDashboard from "./plugins/blackDashboard";
 import i18n from "./i18n"
 import './registerServiceWorker'
+
 Vue.use(BlackDashboard);
 Vue.use(VueRouter);
 Vue.use(RouterPrefetch);
+
+// Your Firebase configuration
+const firebaseConfig = {
+  apiKey: "",
+  authDomain:""
+  // ... (other config properties)
+};
+
+// Initialize Firebase
+initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 
 /* eslint-disable no-new */
 new Vue({

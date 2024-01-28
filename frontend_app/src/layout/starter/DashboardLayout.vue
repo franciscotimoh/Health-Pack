@@ -14,7 +14,7 @@
       <top-navbar></top-navbar>
 
       <dashboard-content @click.native="toggleSidebar">
-
+        <RouterView name="DashboardContent"></RouterView>
       </dashboard-content>
 
       <content-footer></content-footer>
