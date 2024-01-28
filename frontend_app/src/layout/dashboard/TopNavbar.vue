@@ -15,16 +15,16 @@
         </div>
         <a class="navbar-brand" href="#pablo">{{routeName}}</a>
       </div>
-      <button class="navbar-toggler" type="button"
-              @click="toggleMenu"
-              data-toggle="collapse"
-              data-target="#navigation"
-              aria-controls="navigation-index"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-bar navbar-kebab"></span>
-        <span class="navbar-toggler-bar navbar-kebab"></span>
-        <span class="navbar-toggler-bar navbar-kebab"></span>
-      </button>
+<!--      <button class="navbar-toggler" type="button"-->
+<!--              @click="toggleMenu"-->
+<!--              data-toggle="collapse"-->
+<!--              data-target="#navigation"-->
+<!--              aria-controls="navigation-index"-->
+<!--              aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-bar navbar-kebab"></span>-->
+<!--        <span class="navbar-toggler-bar navbar-kebab"></span>-->
+<!--        <span class="navbar-toggler-bar navbar-kebab"></span>-->
+<!--      </button>-->
 
       <collapse-transition>
         <div class="collapse navbar-collapse show" v-show="showMenu">
@@ -92,7 +92,7 @@
               </li>
               <div class="dropdown-divider"></div>
               <li class="nav-link">
-                <a href="#" class="nav-item dropdown-item">Log out</a>
+                <a href="#welcome" class="nav-item dropdown-item">Log out</a>
               </li>
             </base-dropdown>
           </ul>
